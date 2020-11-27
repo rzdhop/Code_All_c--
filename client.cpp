@@ -1,4 +1,4 @@
-  #include <string.h>
+#include <string.h>
 #include <iostream>
 #include <cstdlib>
 #include <regex>
@@ -38,6 +38,8 @@ int ping (char RHOST) {
 
 int main(int argc, char **argv)
 {
+    int variable;
+    fonction(variable, HTTP_ERR);
     regex addrPattern("^([1-2]?[0-9]{2}|[1-9])\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9])$");
     regex portPattern("^([1-6]?[0-9]{4}|[0-9]{3}|[0-9]{2}|[1-9])$");
     int hostID(0), skipArg(0);
