@@ -15,8 +15,8 @@ ErrorHandler::~ErrorHandler(){this->printError();}
 
 void ErrorHandler::_SetErrorType(ErrorType errorType) {this->errorType = errorType;}
 void ErrorHandler::_SetPrintError(){
-    ErrorType ListErrTypes[] = {ERR_PORT_FORMAT, ERR_IP_FORMAT, ERR_DFLT};
     typedef void (ErrorHandler::*ListPTRFunction)(void);
+    ErrorType ListErrTypes[] = {ERR_PORT_FORMAT, ERR_IP_FORMAT, ERR_DFLT};
     ListPTRFunction ListFunction[] = {ErrorHandler::wrongPORTFormat, ErrorHandler::wrongIPFormat, ErrorHandler::defaultError};
 }
 

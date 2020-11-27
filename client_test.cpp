@@ -1,7 +1,8 @@
-#include <string.h>
+#include <string>
 #include <iostream>
 #include <cstdlib>
 #include <regex>
+#include "headers/errorHandler.h"
 
 #ifdef __unix__
 #include <sys/socket.h>
@@ -14,7 +15,7 @@
 
 using namespace std;
 
-int main(int argc, char **argv)
+int main(void)
 {
-
+    ErrorHandler error = new ErrorHandler("SALUT", ERR_DFLT);
 }

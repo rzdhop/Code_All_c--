@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 #include <iostream>
 #include <cstdlib>
 #include <regex>
