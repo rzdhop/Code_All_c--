@@ -1,4 +1,4 @@
-#include <string>
+#include <string.h>
 #include <iostream>
 #include <cstdlib>
 #include <regex>
@@ -15,7 +15,11 @@
 
 using namespace std;
 
-int main(void)
+int main(int argc, char **argv)
 {
-    ErrorHandler error = new ErrorHandler("SALUT", ERR_DFLT);
+    ErrorHandler error("198.872.89.1", ERR_IP_FORMAT);
+    error.printError();
+    getchar();
+
+    return 0;
 }

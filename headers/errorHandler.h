@@ -18,16 +18,16 @@ class ErrorHandler
         void _SetErrorType(ErrorType errorType);
         void _SetPrintError();
         void _SetARGVError(string argv);
-        void _SetARGVError(int argv);
+        void _SetARGVError(int argv); 
+        void printError();
         void wrongPORTFormat();
         void wrongIPFormat();
         void defaultError();
-        void printError();
-
+       
     private:
         ErrorType errorType;
         string procError; 
         string STRprocARGV;
         int INTprocARGV;
-        
+        string printedERROR;
 };

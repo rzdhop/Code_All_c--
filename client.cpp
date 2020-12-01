@@ -39,7 +39,6 @@ int ping (char RHOST) {
 int main(int argc, char **argv)
 {
     int variable;
-    fonction(variable, HTTP_ERR);
     regex addrPattern("^([1-2]?[0-9]{2}|[1-9])\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9])$");
     regex portPattern("^([1-6]?[0-9]{4}|[0-9]{3}|[0-9]{2}|[1-9])$");
     int hostID(0), skipArg(0);
@@ -99,7 +98,9 @@ int main(int argc, char **argv)
 
         cout << endl << "[+] Remote addr set to : " << remoteAddr << endl;
         cout << "[+] Remote Port set to : " << remotePort << endl << endl;
-
+        
+        CLASS kevinclass("IP", 67);
+        kevinclass->send();
         if(skipArg) {
             if(!strcmp(argv[4], "-u") || !strcmp(argv[4], "--up")){
                 cout << "Pinged ! \n\n";
