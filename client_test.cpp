@@ -17,9 +17,6 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    ErrorHandler error("198.872.89.1", ERR_IP_FORMAT);
-    error.printError();
-    getchar();
 
     return 0;
 }
