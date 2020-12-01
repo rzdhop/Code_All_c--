@@ -1,4 +1,4 @@
-#include "../headers/errorHandler.h"
+#include "../errorHandler.h"
 #include <iostream>
 #include <string>
 
