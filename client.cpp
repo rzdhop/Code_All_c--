@@ -99,8 +99,6 @@ int main(int argc, char **argv)
         cout << endl << "[+] Remote addr set to : " << remoteAddr << endl;
         cout << "[+] Remote Port set to : " << remotePort << endl << endl;
         
-        CLASS kevinclass("IP", 67);
-        kevinclass->send();
         if(skipArg) {
             if(!strcmp(argv[4], "-u") || !strcmp(argv[4], "--up")){
                 cout << "Pinged ! \n\n";
