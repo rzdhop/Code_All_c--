@@ -37,7 +37,10 @@ void regexHandler::_SetMatchARGV(string argv){
 bool regexHandler::regMatch(string argv, patternType p_Type){
     this->_SetPattern(p_Type);
     this->_SetMatchARGV(argv);
-
+    cmatch regMatch;
+    if(regex_search(argv.c_str(), regMatch, this->PORT_pattern)){
+        return true;            
+    } 
     
 
 
