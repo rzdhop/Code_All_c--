@@ -38,16 +38,17 @@ bool regexHandler::regMatch(string argv, patternType p_Type){
     this->_SetPattern(p_Type);
     this->_SetMatchARGV(argv);
     cmatch regMatch;
-    if(regex_search(argv.c_str(), regMatch, this->PORT_pattern)){
-        return true;            
-    } 
-    
-
-
+    if(regex_search(argv.c_str(), regMatch, this->IP_pattern)){
+        return true;      
+    }else {return false;}
 }
 bool regexHandler::regMatch(int argv, patternType p_Type){
     this->_SetPattern(p_Type);
     this->_SetMatchARGV(argv);
-
-
+    cmatch regMatch;
+    if(regex_search(to_string(argv).c_str(), regMatch, this->PORT_pattern)){
+        int remotePort = stoi(regMatch.str(0).c_str());
+        if(!(remotePort < 1) && !(remotePort > 65535)){return false;}
+        else{return true;}
+    } else {return false;} 
 }
