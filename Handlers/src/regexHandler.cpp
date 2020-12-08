@@ -6,19 +6,19 @@
 
 using namespace std;
 
-regexHandler::regexHandler(){
+RegexHandler::RegexHandler(){
     this->IP_pattern = "^([1-2]?[0-9]{2}|[1-9])\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9]|0)\\.([1-2]?[0-9]{2}|[1-9]|0)$";
 }
 
-regexHandler::~regexHandler(){}
+RegexHandler::~RegexHandler(){}
 
-bool regexHandler::_init_Handler(string argv, patternType p_Type){
+bool RegexHandler::_init_Handler(string argv, patternType p_Type){
     this->_SetMatchARGV(argv);
     this->_SetPattern(p_Type);
 
     patternType ListPattTypes[] = {IP_PATTERN, PORT_PATTERN};
-    typedef bool (regexHandler::*PTRFunction)();
-    PTRFunction ListFunction[] = {&regexHandler::_regMatch_IP, &regexHandler::_regMatch_PORT};
+    typedef bool (RegexHandler::*PTRFunction)();
+    PTRFunction ListFunction[] = {&RegexHandler::_regMatch_IP, &RegexHandler::_regMatch_PORT};
     for(int i(0); i < 3; i++){
         if(this->p_Type == ListPattTypes[i]){
             return (this->*ListFunction[i])();
@@ -26,13 +26,13 @@ bool regexHandler::_init_Handler(string argv, patternType p_Type){
     }
 
 }
-bool regexHandler::_init_Handler(int argv, patternType p_Type){
+bool RegexHandler::_init_Handler(int argv, patternType p_Type){
     this->_SetMatchARGV(argv);
     this->_SetPattern(p_Type);
 
     patternType ListPattTypes[] = {IP_PATTERN, PORT_PATTERN};
-    typedef bool (regexHandler::*PTRFunction)();
-    PTRFunction ListFunction[] = {&regexHandler::_regMatch_IP, &regexHandler::_regMatch_PORT};
+    typedef bool (RegexHandler::*PTRFunction)();
+    PTRFunction ListFunction[] = {&RegexHandler::_regMatch_IP, &RegexHandler::_regMatch_PORT};
     for(int i(0); i < 3; i++){
         if(this->p_Type == ListPattTypes[i]){
             return (this->*ListFunction[i])();
@@ -40,7 +40,7 @@ bool regexHandler::_init_Handler(int argv, patternType p_Type){
     }
 }
 
-void regexHandler::_SetPattern(patternType type){
+void RegexHandler::_SetPattern(patternType type){
     this->p_Type = type;
 
     switch (this->p_Type)
@@ -53,28 +53,28 @@ void regexHandler::_SetPattern(patternType type){
     }
 }
 
-void regexHandler::_SetMatchARGV(int argv){
+void RegexHandler::_SetMatchARGV(int argv){
     this->i_argv = argv;
 }
-void regexHandler::_SetMatchARGV(string argv){
+void RegexHandler::_SetMatchARGV(string argv){
     this->s_argv = argv;
 }
 
-bool regexHandler::_regMatch_IP(){
+bool RegexHandler::_regMatch_IP(){
     cmatch regMatch;
     if(regex_search(this->s_argv.c_str(), regMatch, this->IP_pattern)){
         return true;      
     }else {return false;}
 }
-bool regexHandler::_regMatch_PORT(){
+bool RegexHandler::_regMatch_PORT(){
     cmatch regMatch;
     if(this->i_argv > 1 && this->i_argv < 65535){return true;}
     else{return false;}
 }
 
-bool regexHandler::match(string argv, patternType p_Type) {
+bool RegexHandler::match(string argv, patternType p_Type) {
     return this->_init_Handler(argv, p_Type);
 }
-bool regexHandler::match(int argv, patternType p_Type) {
+bool RegexHandler::match(int argv, patternType p_Type) {
     return this->_init_Handler(argv, p_Type);
 }

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <regex>
-#include "Handlers/errorHandler.h"
+#include "Handlers/eventHandler.h"
 #include "Handlers/regexHandler.h"
 
 #ifdef __unix__

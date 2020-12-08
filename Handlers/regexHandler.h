@@ -9,10 +9,10 @@ enum patternType{
     IP_PATTERN
 };
 
-class regexHandler
+class RegexHandler
 {
     public:
-        regexHandler();
+        RegexHandler();
         bool _init_Handler(string argv, patternType p_Type);
         bool _init_Handler(int argv, patternType p_Type);
         void _SetPattern(patternType type);
@@ -22,7 +22,7 @@ class regexHandler
         bool _regMatch_PORT();  
         bool match(int argv, patternType p_Type);
         bool match(string argv, patternType p_Type);
-        ~regexHandler();
+        ~RegexHandler();
     
     private:
         string s_argv;
