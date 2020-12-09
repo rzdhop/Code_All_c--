@@ -1,8 +1,9 @@
-#include <string>
+#include <string.h>
 #include <iostream>
 #include <cstdlib>
 #include "Handlers/regexHandler.h"
 #include "Handlers/eventHandler.h"
+#include "Handlers/argh.h"
 
 #ifdef __unix__
 #include <sys/socket.h>
@@ -24,7 +25,8 @@ int main(int argc, char **argv)
 {
     EventHandler event;
     RegexHandler regex;
-    int skipArg(0), remotePort(0);
+    argh::parser argvHandler(argv);
+
     string remoteAddr("127.0.0.1");
 
     if(argc < 2 || argc > 7) {cout << event.defaultError(); return 1;}

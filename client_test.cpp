@@ -4,6 +4,8 @@
 #include <regex>
 #include "Handlers/eventHandler.h"
 #include "Handlers/regexHandler.h"
+#include "Handlers/argh.h"
+
 
 #ifdef __unix__
 #include <sys/socket.h>
@@ -18,18 +20,11 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    int arg;
-    regexHandler regex;
-    bool stopBit(true);
+    argh::parser cmdl(argv);
+    RegexHandler regex;
+    EventHandler event;
 
-    while (stopBit){
-        cin >> arg;
-        if (regex.match(arg, PORT_PATTERN)){
-            cout << "passed"<< endl;
-        }else {
-            cout << "failed" << endl;
-        } 
-    }
+    cout << (cmdl[{"-v", "--verbose"}] ? "verbose" : "NOT verbose") << endl;
 
     return 0;
 }
